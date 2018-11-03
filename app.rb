@@ -1,7 +1,7 @@
 require 'sinatra'
 class App < Sinatra::Base
     get '/' do
-        erb:bienvenida
+        erb :bienvenida
     end
 
     get '/jugar' do
