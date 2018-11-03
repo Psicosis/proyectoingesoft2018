@@ -5,9 +5,9 @@ Feature: Bienvenida
 
     Scenario: mensaje de bienvenida
         Given visito la pagina principal
-        Then deberia ver el mensaje "bienvenido a la calculadora"
+        Then deberia ver el mensaje "Cuadrados y Puntos"
     
-    Scenario: boton iniciar
+    Scenario: boton Empezar
         Given visito la pagina principal
-        When presiono el boton "Iniciar"
-        Then deberia ver la pagina con titulo "Sumar"
+        When presiono el boton "Empezar"
+        Then deberia ver la pagina con titulo "hola"
