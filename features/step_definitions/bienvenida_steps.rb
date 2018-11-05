@@ -6,10 +6,20 @@
     expect(page).to have_content(mensaje)
   end
 
-  When("presiono el boton {string}") do |boton|
-    click_button(boton)
+  When("presiono el boton {string}") do |string|
+    click_button(string)
   end
   
   Then("deberia ver la pagina con titulo {string}") do |mensaje|
     expect(page).to have_content(mensaje)
   end
+
+  Given("visito la pagina de configuracion") do
+    visit('/jugar')
+  end
+  
+  Then("deberia ver la pagina con titulo  {string}") do |string|
+    expect(page).to have_content(mensaje)
+  end
+
+  

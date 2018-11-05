@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Incluyendo JS en HTML5</title>
+        <script type="text/javascript">
+             function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            for(var i=0;i<8;i++){
+               for(var j=0;j<6;j++){
+                    ctx.beginPath();
+                    var x              = 25+j*50;               // Coordenada x
+                    var y              = 25+i*50;               // Coordenada y
+                    var radius         = 8;                    // Radio del arco
+                    var startAngle     = 360;                     // Punto inicial del círculo
+                    var endAngle       = 0; // Punto final del círculo
+                    var anticlockwise  = true; // Sentido de las manecillas del reloj y contrario a ellas
+
+                    ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+                   
+                   ctx.fill();
+
+                }
+            }
+          }
+        }
+        </script>
+        	<style>
+                    .tablero
+                    {
+                        position: absolute;
+                        /*nos posicionamos en el centro del navegador*/
+                        top:50%;
+                        left:50%;
+                        /*determinamos una anchura*/
+                       
+                        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+                        margin-left:-200px;
+                        /*determinamos una altura*/
+                        
+                        /*indicamos que el margen superior, es la mitad de la altura*/
+                        margin-top:-150px;
+                        border:1px solid #808080;
+                        padding:5px;
+                        background: white;
+                    }
+                    h1{
+                        text-align:center;
+                        
+                    }
+                    body{
+                        
+                         background: rgb(58, 143, 168);
+                    }
+                    </style>
+    </head>
+    <body onload="draw();">
+        <h1>Partida en Proceso</h1>
+       <div class="tablero">
+       <canvas id="canvas" width="300" height="300"></canvas>
+       <div>
+    </body>
+</html>

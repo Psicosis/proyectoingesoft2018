@@ -5,16 +5,18 @@
 <title>Dots and Boxes</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<script src="/public/js/main.js" defer></script>
+
 </head>
 
 <body style="background-color:#E6C231">
 	<div class="container">
-		<h1>Cuadrados y Lineas</h1>
+		<h1 >CUADRADOS Y PUNTOS</h1>
 		<div class="row">
 			<div class="col-md">
 				<div id="playing-area"></div>
 			</div>
-			<div class="col-md">
+			<form class="col-md" method="get" action="/game">
 				<div class="form-group">
 				<p>Dimensiones del Juego:</p>
 				<div class="input-group">
@@ -27,12 +29,13 @@
 				<br>
 				
 				
-				<button type="button" class="ui green button btn btn-secondary" id="restart-btn">Iniciar Juego</button>
-				</div>
+				<button type="submit" class="ui green button btn btn-secondary" id="starGame">Iniciar Juego</button>
+				</form>
 			</div>
 		</div>
 		
 	</div>
+
 	<script src="https://d3js.org/d3.v4.min.js"></script>
     
 

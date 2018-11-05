@@ -7,6 +7,10 @@ class App < Sinatra::Base
     get '/jugar' do
         erb :jugar
     end
+
+    get '/game' do
+        erb :game
+    end
     
     run! if app_file == $0;
 end
