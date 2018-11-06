@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <title>Incluyendo JS en HTML5</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="/public/js/main.js" defer></script>
         <script type="text/javascript">
              function draw() {
             var canvas = document.getElementById('canvas');
@@ -14,7 +16,7 @@
                     ctx.beginPath();
                     var x              = 25+j*50;               // Coordenada x
                     var y              = 25+i*50;               // Coordenada y
-                    var radius         = 8;                    // Radio del arco
+                    var radius         = 5;                    // Radio del arco
                     var startAngle     = 360;                     // Punto inicial del círculo
                     var endAngle       = 0; // Punto final del círculo
                     var anticlockwise  = true; // Sentido de las manecillas del reloj y contrario a ellas
@@ -34,8 +36,8 @@
                     {
                         position: absolute;
                         /*nos posicionamos en el centro del navegador*/
-                        top:50%;
-                        left:50%;
+                        top:35%;
+                        left:52%;
                         /*determinamos una anchura*/
                        
                         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
@@ -47,6 +49,26 @@
                         border:1px solid #808080;
                         padding:5px;
                         background: white;
+                        
+                    }
+                    .tablerop
+                    {
+                        position: absolute;
+                        /*nos posicionamos en el centro del navegador*/
+                        top:35%;
+                        left:35%;
+                        /*determinamos una anchura*/
+                       
+                        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+                        margin-left:-200px;
+                        /*determinamos una altura*/
+                        
+                        /*indicamos que el margen superior, es la mitad de la altura*/
+                        margin-top:-150px;
+                        border:1px solid #808080;
+                        padding:5px;
+                        background: white;
+                        
                     }
                     h1{
                         text-align:center;
@@ -58,10 +80,42 @@
                     }
                     </style>
     </head>
+
+   
+    
+
+
+
     <body onload="draw();">
         <h1>Partida en Proceso</h1>
-       <div class="tablero">
+       <div align = "center" class="tablero">
        <canvas id="canvas" width="300" height="300"></canvas>
-       <div>
+            <div>
+                    <span class="ui green input-group-text">Jugador 1</span>
+                    <input type="number" class="form-control" id="nb-rows" value=6 min=1>
+                    <input type="number" class="form-control" id="nb-cols" value=6 min=1>
+                    <button type="submit" class="ui blue button btn  btn-secondary">Marcar Jugada 1</button>
+                    <span class="ui green input-group-text">Jugador 2</span>
+                    <input type="number" class="form-control" id="nb-rows" value=6 min=1>
+                    <input type="number" class="form-control" id="nb-cols" value=6 min=1>
+                    <button type="submit" class="ui blue button btn  btn-secondary">Marcar Jugada 2</button>
+
+                    
+        
+                </div>
+        </div>
+
+        <div class = "tablerop">
+            <div>
+                <span class="ui green input-group-text">Puntuacion Jugador 1</span> 
+                <lbl>12</lbl>
+            </div>
+            <div>
+            <span class="ui green input-group-text">Puntuacion Jugador 2</span>
+            <lbl>7</lbl>
+            </div>
+        </div>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     </body>
 </html>
