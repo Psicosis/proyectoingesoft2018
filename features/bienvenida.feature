@@ -10,9 +10,6 @@ Feature: Bienvenida
     Scenario: boton Empezar
         Given visito la pagina principal
         When presiono el boton "Empezar"
-        Then deberia ver la pagina con titulo "CUADRADOS Y PUNTOS"
+        Then deberia ver la pagina con titulo "Configuracion del Juego"
 
-    Scenario: boton iniciar partida
-        Given visito la pagina de configuracion
-        When presiono el boton "Iniciar Juego"
-        Then deberia ver la pagina con titulo  "Partida en Proceso"
+   
