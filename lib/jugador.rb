@@ -5,8 +5,8 @@ class Jugador
         @puntaje=0
     end
 
-    def getNombre()
-        return @nombre
+    def getNombre
+        @nombre
     end
 
     def setNombre(nombre)

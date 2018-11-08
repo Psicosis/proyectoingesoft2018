@@ -7,6 +7,7 @@ class Punto
         @abajo=false
         @izq=false
         @der=false
+        @c="  *  "
     end
 
     def getX
@@ -52,6 +53,10 @@ class Punto
     def setXY(x,y)
         @x=x
         @y=y        
+    end
+
+    def getc
+        return @c
     end
 end
 
