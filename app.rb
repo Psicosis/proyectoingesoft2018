@@ -18,3 +18,11 @@ enable:sessions
         @jugador2 = tablero.getJugador2
         erb :game
     end
+
+    post '/jugada'
+        x1= params[:x1]
+        y1= params[:y1]
+        x2= params[:x2]
+        y2= params[:y2]
+        
+    end
