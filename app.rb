@@ -1,5 +1,8 @@
 require 'sinatra'
-class App < Sinatra::Base
+require_relative "./lib/tablero"
+tablero=Tablero.new()
+enable:sessions
+
     get '/' do
         erb :bienvenida
     end
@@ -9,8 +12,9 @@ class App < Sinatra::Base
     end
 
     get '/game' do
+        @matriz = tablero.getTablero
+        @char="*"
+        @jugador1 = tablero.getJugador1
+        @jugador2 = tablero.getJugador2
         erb :game
     end
-    
-    run! if app_file == $0;
-end
