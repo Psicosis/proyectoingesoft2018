@@ -87,14 +87,14 @@
 
         <% @matriz.each do |fila| %>
             <% fila.each do |columna| %>
-                <th>    <%=@char  %>   <th>
+                <th>    <%= columna.getc  %>   <th>
             <% end %>
             <br>
         <% end %>
 
 
             <div>
-                <form method="post" action="/jugada">
+                <form method="post" action="/game/jugada">
                     
                     <span class="ui green input-group-text">Jugada de  <%= @jugador1.getNombre %></span>
                     <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=1 name="x1">
@@ -104,7 +104,7 @@
                     <button type="submit" class="ui blue button btn  btn-secondary">Marcar Jugada 1</button>
                 </form>
 
-                <form method="post" action="/jugada">
+                <form method="post" action="/game/jugada">
                     <span class="ui green input-group-text">Jugada de <%= @jugador2.getNombre%></span>
                     
                     <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=1 name="x1">

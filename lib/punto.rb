@@ -7,7 +7,7 @@ class Punto
         @abajo=false
         @izq=false
         @der=false
-        @c="  *  "
+        @c="    *   "
     end
 
     def getX
@@ -19,19 +19,19 @@ class Punto
     end
 
     def getIzq
-        return @izq
+        @izq
     end
 
     def getDer
-        return @der
+        @der
     end
 
     def getAbajo
-        return @abajo
+        @abajo
     end
 
     def getArriba
-        return @arriba
+        @arriba
     end
 
     def setIzq(estado)
@@ -56,7 +56,7 @@ class Punto
     end
 
     def getc
-        return @c
+        @c
     end
 end
 
