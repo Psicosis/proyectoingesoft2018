@@ -6,20 +6,25 @@ class Tablero
     def initialize
         @fila=4
         @columna=4
-        #@jugador1 = Jugador.new("Edwin")
-        #@jugador2 = Jugador.new("Oliver")
-        @jugador1 = Jugador.new("Edwin")
-        @jugador2 = Jugador.new("Oliver")
+        @jugador1 = Jugador.new(" ")
+        @jugador2 = Jugador.new(" ")
         @matriz=Array.new(@fila) {Array.new(@columna) {Punto.new()}}
     end
 
     def inicializarTablero
+        for i in 0..3 do
+            for j in 0..3 do
+                
+            end
+        end
+
         for i in 0..3 do
             @matriz[0][i].setArriba(true)
             @matriz[3][i].setAbajo(true)
             @matriz[i][0].setIzq(true)
             @matriz[i][3].setDer(true)
         end
+        puts "crea tablero"
     end
 
     def guardarJugador(jugador1,jugador2)
@@ -28,10 +33,11 @@ class Tablero
     end
 
     def tipoJugada(x1,y1,x2,y2)
+        #puts "compara la jugada"
         if x1 == x2
             return "horizontal"
         else
-            if y1==y2
+            if y1 == y2
                 return "vertical"
             else
                 return "error"
@@ -58,24 +64,28 @@ class Tablero
         end
     end
 
-    def registrarJugada(x1,y1,x2,y2,jugador)
+    def registrarJugada(x1,y1,x2,y2)
+        
         if tipoJugada(x1,y1,x2,y2)=="horizontal"
+            #puts "entra aqui"
             if devolverMayor(x1,y1,x2,y2)=="p2"
+                #puts "cambia valores de los puntos"
                 @matriz[x1][y1].setDer(true)
                 @matriz[x2][y2].setIzq(true)
             else
                 @matriz[x1][y1].setIzq(true)
                 @matriz[x2][y2].setDer(true)
             end
-        end
+        else
 
-        if tipoJugada(x1,y1,x2,y2)=="vertical"
-            if devolverMayor(x1,y1,x2,y2)=="p2"
-                @matriz[x1][y1].setAbajo(true)
-                @matriz[x2][y2].setArriba(true)
-            else
-                @matriz[x1][y1].setArriba(true)
-                @matriz[x2][y2].setAbajo(true)
+            if tipoJugada(x1,y1,x2,y2)=="vertical"
+                if devolverMayor(x1,y1,x2,y2)=="p2"
+                    @matriz[x1][y1].setAbajo(true)
+                    @matriz[x2][y2].setArriba(true)
+                else
+                    @matriz[x1][y1].setArriba(true)
+                    @matriz[x2][y2].setAbajo(true)
+                end
             end
         end
     end
