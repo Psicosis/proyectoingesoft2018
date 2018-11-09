@@ -80,11 +80,16 @@
                     }
                     </style>
     </head>
+    
+    <form method="get" action="/" align="center">
+        <button class="ui green button">Salir</button>
+    </form>
+
 
     <body onload="draw();">
         <h1>Partida en Proceso</h1>
         <div align = "center" class="tablero">
-
+        
         <% @matriz.each do |fila| %>
             <% fila.each do |columna| %>
                 <th>    <%=@char  %>   <th>
@@ -96,7 +101,7 @@
             <div>
                 <form method="post" action="/jugada">
                     
-                    <span class="ui green input-group-text">Jugada de  <%= @jugador1.getNombre %></span>
+                    <span id ='nomjud1'  class="ui green input-group-text">Jugada de  <%= @jugador1.getNombre %></span>
                     <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=1 name="x1">
                     <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=1  name="y1">
                     <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=1  name="x2">

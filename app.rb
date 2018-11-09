@@ -18,9 +18,12 @@ class App < Sinatra::Base
             erb :jugar
         end
 
-        post '/game' do
-            
+        get '/game' do
+            erb :game
+        end
 
+        post '/game' do
+         
             nomjug1 = params[:jugador1]
             nomjug2 = params[:jugador2]
             @texto = nomjug1
@@ -41,6 +44,8 @@ class App < Sinatra::Base
 
             erb :game
         end
+
+
 
         run! if app_file == $0;
 
