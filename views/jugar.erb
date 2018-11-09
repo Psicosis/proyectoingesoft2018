@@ -13,10 +13,8 @@
 	<div align="center"class="container">
 		<h1>Configuracion del Juego</h1>
 		<div>
-			<div class="col-md">
-				<div id="playing-area"></div>
-			</div>
-			<form align="center" class="col-md" method="get" action="/game">
+			
+			<form align="center" class="col-md" method="post" action="/game">
 				<div  class="form-group">
 					<h1>Dimensiones del Juego:</h1>
 					<div class="input-group">
@@ -27,6 +25,29 @@
 							<input type="number" class="form-control" id="nb-cols" value=6 min=1>
 					</div>
 				<br>
+
+				
+				<div  class="form-group">
+					<h1>Registrar Jugadores:</h1>
+					<div class="input-group">
+						<p>
+							<label>Jugador 1</label>
+								<input type = 'text'  name='jugador1' required pattern="[a-zA-Z#]+">
+								
+								
+						</p>
+						<br>
+						<div>
+							<p>
+								<label>Jugador 2</label>
+									<input type = 'text' name='jugador2' required pattern="[a-zA-Z#]+">
+									
+							</p>
+						</div>
+					</div>
+					<br>
+				</div>
+
 				
 				
 				<button type="submit" class="ui green button btn btn-secondary" id="starGame">Iniciar Juego</button>

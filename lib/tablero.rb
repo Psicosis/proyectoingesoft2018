@@ -6,6 +6,8 @@ class Tablero
     def initialize
         @fila=4
         @columna=4
+        #@jugador1 = Jugador.new("Edwin")
+        #@jugador2 = Jugador.new("Oliver")
         @jugador1 = Jugador.new("Edwin")
         @jugador2 = Jugador.new("Oliver")
         @matriz=Array.new(@fila) {Array.new(@columna) {Punto.new()}}

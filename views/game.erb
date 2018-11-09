@@ -95,7 +95,8 @@
 
             <div>
                 <form method="post" action="/jugada">
-                    <span class="ui green input-group-text">Jugador 1</span>
+                    
+                    <span class="ui green input-group-text">Jugada de  <%= @jugador1.getNombre %></span>
                     <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=1 name="x1">
                     <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=1  name="y1">
                     <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=1  name="x2">
@@ -104,7 +105,8 @@
                 </form>
 
                 <form method="post" action="/jugada">
-                    <span class="ui green input-group-text">Jugador 2</span>
+                    <span class="ui green input-group-text">Jugada de <%= @jugador2.getNombre%></span>
+                    
                     <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=1 name="x1">
                     <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=1 name="y1">
                     <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=1 name="x2">
