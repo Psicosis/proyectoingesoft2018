@@ -14,15 +14,7 @@ Feature: Configuracion
             Then deberia ver la pagina con titulo "Partida en Proceso"
 
 
-        Scenario: escoger filas negativa
-            Given visito la pagina Configuracion
-            When presiono el botom "Iniciar Juego"
-            Then deberia ver el mensaje "fila incorrecta"
-
-        Scenario: escoger columna negativa
-            Given visito la pagina Configuracion
-            When presiono el botom "Iniciar Juego"
-            Then deberia ver el mensaje "columna incorrecta"
+        
 
         
 
