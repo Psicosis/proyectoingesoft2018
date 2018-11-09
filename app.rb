@@ -1,5 +1,7 @@
 require 'sinatra'
-require_relative "./lib/tablero"
+require './lib/punto.'
+require './lib/jugador'
+require './lib/tablero'
 
 class App < Sinatra::Base
 
@@ -32,16 +34,26 @@ class App < Sinatra::Base
             jug2 = Jugador.new(nomjug2)
             
             tablero.guardarJugador(nomjug1,nomjug2)
-            
+            tablero.inicializarTablero
             
             @matriz = tablero.getTablero
-            @char="*"
             @jugador1 = tablero.getJugador1
             @jugador2 = tablero.getJugador2
             
-            #jugador1.setNombre(nomjug1)
-            #jugador2.setNombre(nomjug2)
+            erb :game
+        end
 
+        post '/game/jugada' do
+            x1 = params[:x1]
+            y1 = params[:y1]
+            x2 = params[:x2]
+            y2 = params[:y2]
+            jugador=params[:jugador]
+            tablero.registrarJugada(x1.to_i ,y1.to_i ,x2.to_i ,y2.to_i ,jugador)
+            @matriz = tablero.getTablero
+            @jugador1 = tablero.getJugador1
+            @jugador2 = tablero.getJugador2
+ 
             erb :game
         end
 

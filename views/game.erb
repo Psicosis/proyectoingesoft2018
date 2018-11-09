@@ -92,30 +92,32 @@
         
         <% @matriz.each do |fila| %>
             <% fila.each do |columna| %>
-                <th>    <%=@char  %>   <th>
+                <th>    <%=columna.getc  %>   <th>
             <% end %>
             <br>
         <% end %>
 
 
             <div>
-                <form method="post" action="/jugada">
+                <form method="post" action="/game/jugada">
                     
                     <span id ='nomjud1'  class="ui green input-group-text">Jugada de  <%= @jugador1.getNombre %></span>
-                    <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=1 name="x1">
-                    <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=1  name="y1">
-                    <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=1  name="x2">
-                    <label>Coordenada y2:</label><input type="number" class="form-control" id="nb-cols" min=1  name="y2">
+                    <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=0 name="x1">
+                    <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=0 name="y1">
+                    <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=0  name="x2">
+                    <label>Coordenada y2:</label><input type="number" class="form-control" id="nb-cols" min=0  name="y2">
+                    <input type="hidden" class="form-control" id="nb-cols" name=jugador value=jugador1>
                     <button type="submit" class="ui blue button btn  btn-secondary">Marcar Jugada 1</button>
                 </form>
 
-                <form method="post" action="/jugada">
+                <form method="post" action="/game/jugada">
                     <span class="ui green input-group-text">Jugada de <%= @jugador2.getNombre%></span>
                     
-                    <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=1 name="x1">
-                    <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=1 name="y1">
-                    <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=1 name="x2">
-                    <label>Coordenada y2:</label><input type="number" class="form-control" id="nb-cols" min=1 name="y2">
+                    <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=0 name="x1">
+                    <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=0 name="y1">
+                    <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=0 name="x2">
+                    <label>Coordenada y2:</label><input type="number" class="form-control" id="nb-cols" min=0 name="y2">
+                    <input type="hidden" class="form-control" id="nb-cols" name=jugador value=jugador2>
                     <button type="submit" class="ui blue button btn  btn-secondary">Marcar Jugada 2</button>
                 </form>
                     

@@ -6,10 +6,8 @@ class Tablero
     def initialize
         @fila=4
         @columna=4
-        #@jugador1 = Jugador.new("Edwin")
-        #@jugador2 = Jugador.new("Oliver")
-        @jugador1 = Jugador.new("Edwin")
-        @jugador2 = Jugador.new("Oliver")
+        @jugador1 = Jugador.new(" ")
+        @jugador2 = Jugador.new(" ")
         @matriz=Array.new(@fila) {Array.new(@columna) {Punto.new()}}
     end
 
@@ -67,15 +65,15 @@ class Tablero
                 @matriz[x1][y1].setIzq(true)
                 @matriz[x2][y2].setDer(true)
             end
-        end
-
-        if tipoJugada(x1,y1,x2,y2)=="vertical"
-            if devolverMayor(x1,y1,x2,y2)=="p2"
-                @matriz[x1][y1].setAbajo(true)
-                @matriz[x2][y2].setArriba(true)
-            else
-                @matriz[x1][y1].setArriba(true)
-                @matriz[x2][y2].setAbajo(true)
+        else
+            if tipoJugada(x1,y1,x2,y2)=="vertical"
+                if devolverMayor(x1,y1,x2,y2)=="p2"
+                    @matriz[x1][y1].setAbajo(true)
+                    @matriz[x2][y2].setArriba(true)
+                else
+                    @matriz[x1][y1].setArriba(true)
+                    @matriz[x2][y2].setAbajo(true)
+                end
             end
         end
     end
