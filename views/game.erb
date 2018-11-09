@@ -70,6 +70,29 @@
                         background: white;
                         
                     }
+
+                    .tableror
+                    {
+                        position: absolute;
+                        /*nos posicionamos en el centro del navegador*/
+                        top:35%;
+                        left:67%;
+                        /*determinamos una anchura*/
+                       
+                        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+                        margin-left:-200px;
+                        /*determinamos una altura*/
+                        
+                        /*indicamos que el margen superior, es la mitad de la altura*/
+                        margin-top:-150px;
+                        border:1px solid #808080;
+                        padding:5px;
+                        background: #01DF3A;
+                        
+                    }
+
+
+
                     h1{
                         text-align:center;
                         
@@ -136,6 +159,18 @@
             <lbl><%= @jugador2.getPuntaje %></lbl>
             </div>
         </div>
+
+        <div class = "tableror">
+            <div>
+                <span class="ui green input-group-text"> REGLAS DEL JUEGO </span>
+                <ul> 
+                    <li>Cada jugador tiene un turno para trazar una línea que una dos puntos, ya sea horizontal o verticalmente. Los puntos deben ser adyacentes</li> 
+                    <li>Cuando un jugador completa un cuadrado, él o ella tomará posesión de ese cuadrado ya sea con una letra, un color en particular. La persona que complete el cuadrado tendrá el siguiente turno después de haber formado el cuadro.</li> 
+                    <li>Cuando toda la cuadrícula esté llena de cuadrados, el juego habrá terminado y la persona que haya completado la mayoría de los cuadrados gana</li>
+                </ul> 
+            </div>
+        </div>
+
 
     <script src="https://d3js.org/d3.v4.min.js"></script>
     </body>

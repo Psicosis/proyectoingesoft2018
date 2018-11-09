@@ -7,7 +7,7 @@ class Punto
         @abajo=false
         @izq=false
         @der=false
-        @c="  *  "
+        @c="  •  "
     end
 
     def getX
