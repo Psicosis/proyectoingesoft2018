@@ -1,5 +1,5 @@
 language: ruby
 rvm: 2.5.1
- script:
+script:
   - "bundle exec rake spec"
   - "bundle exec cucumber"
