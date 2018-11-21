@@ -1,5 +1,5 @@
 require 'sinatra'
-require './lib/punto.'
+require './lib/punto'
 require './lib/jugador'
 require './lib/tablero'
 
