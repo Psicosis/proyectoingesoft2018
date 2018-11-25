@@ -7,7 +7,7 @@ class Punto
         @abajo=false
         @izq=false
         @der=false
-        @c="  •  "
+        @c="•"
     end
 
     def getX
@@ -57,6 +57,10 @@ class Punto
 
     def getc
         @c
+    end
+
+    def setc(element)
+        @c=element
     end
 end
 

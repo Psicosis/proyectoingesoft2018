@@ -4,11 +4,13 @@ require "./lib/jugador"
 class Tablero
 
     def initialize
-        @fila=4
-        @columna=4
+        @fila=5
+        @columna=5
         @jugador1 = Jugador.new(" ")
         @jugador2 = Jugador.new(" ")
         @matriz=Array.new(@fila) {Array.new(@columna) {Punto.new()}}
+        @turnoJugador = "j1"
+        
     end
 
     def inicializarTablero
@@ -77,6 +79,29 @@ class Tablero
             end
         end
     end
+    
+    
+
+    def returnRow(row)
+		abc = [*'A'..'D']
+		return abc.index(row)
+    end
+    
+    def devolverTurnoJug1
+        return @jugador1.getTurno()
+    end
+
+    def devolverTurnoJug2
+        return @jugador2.getTurno()
+    end
+
+    def resetTurnoJ1
+        @jugador1.resetcontrolTurno()
+    end
+
+    def resetTurnoJ2
+        @jugador2.resetcontrolTurno()
+    end
 
     def getTablero
         @matriz
@@ -89,5 +114,55 @@ class Tablero
     def getJugador2
         @jugador2
     end
+
+    def colocarPunto(row, column)
+		if(@turnoJugador == "j1")
+            @jugador1.restarTurno()
+            #@matriz[1][1].setc("B")
+            @matriz[row-1][column-1].setc("x")
+            
+		else
+            @jugador2.restarTurno()		
+            @matriz[row-1][column-1].setc("x")	
+		end
+	end
+
+
+
+    def changeTurn()
+		if(@turnoJugador == "j1")
+			@turnoJugador ="j2"
+		else
+			@turnoJugador = "j1"
+		end
+    end
+    
+
+
+    def returnTurn()
+		return @turnoJugador
+    end
+    
+    #def placeElementInTheBoard(row,column,element)
+     #   @matriz[row][colum].setc(element)
+    #end
+
+    def getMatriz()
+		return @matriz
+    end
+    
+    
+    
+    def marcarPunto(row,colum)
+		
+			row = returnRow(row)
+            colum=colum-1            
+            #placeElementInTheBoard(row,colum,'B')	
+            #@matriz[1][1].setc('B')
+            
+			@controlTurno=@controlTurno-1
+		
+    end
+   
 
 end

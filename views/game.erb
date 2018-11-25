@@ -1,177 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Incluyendo JS en HTML5</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
-        <script type="text/javascript">
-             function draw() {
-            var canvas = document.getElementById('canvas');
-            if (canvas.getContext){
-            var ctx = canvas.getContext('2d');
 
-            for(var i=0;i<8;i++){
-               for(var j=0;j<6;j++){
-                    ctx.beginPath();
-                    var x              = 25+j*50;               // Coordenada x
-                    var y              = 25+i*50;               // Coordenada y
-                    var radius         = 5;                    // Radio del arco
-                    var startAngle     = 360;                     // Punto inicial del círculo
-                    var endAngle       = 0; // Punto final del círculo
-                    var anticlockwise  = true; // Sentido de las manecillas del reloj y contrario a ellas
+<html>
+<head>
+	<script src="semantic/dist/semantic.min.js"></script>
+	<script src="semantic/dist/components/dropdown.min.js"></script>
+	<script src="semantic/examples/assets/library/jquery.min.js"></script>
+	<script src="semantic/dist/semantic.min.js"></script>
+	<link rel="stylesheet" href="Semantic/style.css">
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css" media="screen" title="no title" charset="utf-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+	<title>Batalla Naval</title>
+	
 
-                    ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+<head>
+<body>
+		
+	<% @matriz.each do |fila| %>
+		<% fila.each do |columna| %>
+			<th>    <%=columna.getc  %>   <th>
+		<% end %>
+		<br>
+	<% end %>
+	
+	<div class="ui basic padded segment">
+		<h1 class="ui blue centered  header">Juego en Progreso</h1>
+	</div>
+	<%if @warning==false%>
+	<div class="ui red centered header"><B>Error al ingresar barco, vuelve a intentar</B></div>	
+	<%end%>
+	<% indexed_rows = ["1","2","3","4","5","6","7","8","9","10"] %>
+	<% nroletra = 0 %>
+	<div class="ui grid">	  
+	
+  		<div class="sixteen wide column">
+  			<div class="ui blue centered header">
+  				Turno:
+  				<%if settings.tablero.returnTurn() == "j1" %>	
+  					Jugador 1
+  				<%else%>
+  					Jugador 2
+  				<%end%>
+  			</div>
+  			
+  				
+  			</h1>
+  			<table class="ui  celled definition blue table" style="width:70%; margin-left:15%; table-layout: fixed;">
+			 	<thead>
+			 		<tr>
+			 			<th></th>
+					  	<% [*1..5].each do |e| %>
+					    <th class=" blue center aligned "><B><%= e %></B></th>
+					    <% end %>
+					</tr>
+				</thead>
+				<tbody>	
+				<%if settings.tablero.returnTurn() == "j1" %>	
+						<% settings.tablero.getMatriz().each do |elem| %>
+							<tr>
+								<td class="center aligned"><%= indexed_rows[nroletra] %></td> 	  
+								<% nroletra += 1 %>
+								<% elem.each do |e| %>
+								<!--
+								<td class="center aligned">
+									<%= e == 'B' ? "<i class='large black ship icon'></i>" : 
+										(e == 'U' ? "<i class='large icons'>
+											<i class='black ship icon'></i>
+											<i class='red remove icon'></i>
+											</i>" 
+											: "<i class='large blue theme icon'></i>"
+										) 
+									%>
+								</td>
+								-->
+								<% end %>    
+							</tr>
+				<% end %>
+				<%else%>
+				<% settings.tablero.getMatriz().each do |elem| %>
+			
+				    <tr>
+				    	<td class="center aligned"><%= indexed_rows[nroletra] %></td> 	  
+				    	<% nroletra += 1 %>
+						  <% elem.each do |e| %>
+							<!--
+				    	<td class="center aligned">
+				    		<%= e == 'B' ? "<i class='large black ship icon'></i>" : 
+				    			(e == 'U' ? "<i class='large icons'>
+									  <i class='black ship icon'></i>
+									  <i class='red remove icon'></i>
+									</i>" 
+									: "<i class='large blue theme icon'></i>"
+								) 
+							%>
+						</td>
+						-->
+				    	<% end %>    
+				    </tr>
+				<% end %>
+				<%end%>
+				<% nroletra = 0 %>
+				<tbody>
+			</table>
 
-                   
-                   ctx.fill();
+	  	</div>
+  		
+	</div>
+</br>		
 
-                }
-            }
-          }
-        }
-        </script>
-        	<style>
-                    .tablero
-                    {
-                        position: absolute;
-                        /*nos posicionamos en el centro del navegador*/
-                        top:35%;
-                        left:52%;
-                        /*determinamos una anchura*/
-                       
-                        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-                        margin-left:-200px;
-                        /*determinamos una altura*/
-                        
-                        /*indicamos que el margen superior, es la mitad de la altura*/
-                        margin-top:-150px;
-                        border:1px solid #808080;
-                        padding:5px;
-                        background: white;
-                        
-                    }
-                    .tablerop
-                    {
-                        position: absolute;
-                        /*nos posicionamos en el centro del navegador*/
-                        top:35%;
-                        left:35%;
-                        /*determinamos una anchura*/
-                       
-                        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-                        margin-left:-200px;
-                        /*determinamos una altura*/
-                        
-                        /*indicamos que el margen superior, es la mitad de la altura*/
-                        margin-top:-150px;
-                        border:1px solid #808080;
-                        padding:5px;
-                        background: white;
-                        
-                    }
+	<form class="ui form" method='post' action="/game">
+		<div class="five fields">
+			<div class="field" style="margin-left:30%;">
+				<label>Fila: </label>
+				<select name="row" >
+				  <% [*1..5].each do |row| %>
+				    <option value=<%= row %>><%= row %></option>
+				  <% end %>
+				</select>
+			</div>
+			<div class="field">
+				<label>Columna: </label>
+				<select name="colum" >
+					  <% [*1..5].each do |column| %>
+					    <option value=<%= column %>><%= column %></option>
+					  <% end %>
+				</select>
+			</div>
+		</div>
 
-                    .tableror
-                    {
-                        position: absolute;
-                        /*nos posicionamos en el centro del navegador*/
-                        top:35%;
-                        left:67%;
-                        /*determinamos una anchura*/
-                       
-                        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-                        margin-left:-200px;
-                        /*determinamos una altura*/
-                        
-                        /*indicamos que el margen superior, es la mitad de la altura*/
-                        margin-top:-150px;
-                        border:1px solid #808080;
-                        padding:5px;
-                        background: #01DF3A;
-                        
-                    }
-
-
-
-                    h1{
-                        text-align:center;
-                        
-                    }
-                    body{
-                        
-                         background: rgb(58, 143, 168);
-                    }
-                    </style>
-    </head>
-    
-    <form method="get" action="/" align="center">
-        <button class="ui green button">Salir</button>
-    </form>
-
-
-    <body onload="draw();">
-        <h1>Partida en Proceso</h1>
-        <div align = "center" class="tablero">
-        
-        <% @matriz.each do |fila| %>
-            <% fila.each do |columna| %>
-                <th>    <%=columna.getc  %>   <th>
-            <% end %>
-            <br>
-        <% end %>
-
-
-            <div>
-                <form method="post" action="/game/jugada">
-                    
-                    <span id ='nomjud1'  class="ui green input-group-text">Jugada de  <%= @jugador1.getNombre %></span>
-                    <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=0 name="x1">
-                    <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=0 name="y1">
-                    <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=0  name="x2">
-                    <label>Coordenada y2:</label><input type="number" class="form-control" id="nb-cols" min=0  name="y2">
-                    <input type="hidden" class="form-control" id="nb-cols" name=jugador value=jugador1>
-                    <button type="submit" class="ui blue button btn  btn-secondary">Marcar Jugada 1</button>
-                </form>
-
-                <form method="post" action="/game/jugada">
-                    <span class="ui green input-group-text">Jugada de <%= @jugador2.getNombre%></span>
-                    
-                    <label>Coordenada x1: </label><input type="number" class="form-control" id="nb-rows" min=0 name="x1">
-                    <label>Coordenada y1:</label><input type="number" class="form-control" id="nb-cols" min=0 name="y1">
-                    <label>Coordenada x2:</label><input type="number" class="form-control" id="nb-cols" min=0 name="x2">
-                    <label>Coordenada y2:</label><input type="number" class="form-control" id="nb-cols" min=0 name="y2">
-                    <input type="hidden" class="form-control" id="nb-cols" name=jugador value=jugador2>
-                    <button type="submit" class="ui blue button btn  btn-secondary">Marcar Jugada 2</button>
-                </form>
-                    
-        
-            </div>
-        </div>
-
-        <div class = "tablerop">
-            <div>
-                <span class="ui green input-group-text">Puntuacion Jugador 1: <%= @jugador1.getNombre %></span> 
-                
-                <lbl><%= @jugador1.getPuntaje %></lbl>
-            </div>
-            <div>
-            <span class="ui green input-group-text">Puntuacion Jugador 2: <%= @jugador2.getNombre %></span>
-            <lbl><%= @jugador2.getPuntaje %></lbl>
-            </div>
-        </div>
-
-        <div class = "tableror">
-            <div>
-                <span class="ui green input-group-text"> REGLAS DEL JUEGO </span>
-                <ul> 
-                    <li>Cada jugador tiene un turno para trazar una línea que una dos puntos, ya sea horizontal o verticalmente. Los puntos deben ser adyacentes</li> 
-                    <li>Cuando un jugador completa un cuadrado, él o ella tomará posesión de ese cuadrado ya sea con una letra, un color en particular. La persona que complete el cuadrado tendrá el siguiente turno después de haber formado el cuadro.</li> 
-                    <li>Cuando toda la cuadrícula esté llena de cuadrados, el juego habrá terminado y la persona que haya completado la mayoría de los cuadrados gana</li>
-                </ul> 
-            </div>
-        </div>
+	
+    	
+		<input class="ui blue button" type="submit" value ="Marcar Jugada" style="margin-left:47%;">
+	</form>
 
 
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    </body>
+
+</body>
 </html>
