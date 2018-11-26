@@ -12,17 +12,6 @@ Then("deberia de ver el mensaje en la partida {string}") do |mensaje|
 end
 
 
-Then("deberia ver mi nombre de jugador uno {string}")do |mensaje|
-    $juga1.getNombre == mensaje
-    #fill_in('nomjud1', with: mensaje)
-end
-
-
-
-Then("deberia ver mi nombre de jugador dos {string}")do |mensaje|
-    $juga2.getNombre == mensaje
-    #fill_in('nomjud2', with: mensaje)
-end
 
 
 
