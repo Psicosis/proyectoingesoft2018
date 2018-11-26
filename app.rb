@@ -2,6 +2,7 @@ require 'sinatra'
 require './lib/punto'
 require './lib/jugador'
 require './lib/tablero'
+require './lib/linea'
 
 class App < Sinatra::Base
 
@@ -42,6 +43,7 @@ class App < Sinatra::Base
             tablero.inicializarTablero
             
             @matriz = tablero.getTablero
+            @matrizlinea= tablero.getMatrizLinea
             @jugador1 = tablero.getJugador1
             @jugador2 = tablero.getJugador2
 

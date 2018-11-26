@@ -5,7 +5,7 @@ Feature: Game
 
     Scenario: mensaje de game
             Given visito la pagina de game
-            Then deberia de ver el mensaje en la partida "Partida en Proceso"
+            Then deberia de ver el mensaje en la partida "Juego en Progreso"
 
     Scenario: ver nombre del jugador 1
             Given visito la pagina de game

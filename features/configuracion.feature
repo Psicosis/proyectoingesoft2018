@@ -11,7 +11,7 @@ Feature: Configuracion
         Scenario: boton Iniciar Juego
             Given visito la pagina Configuracion
             When presiono el boton "Iniciar Juego"
-            Then deberia ver la pagina con titulo "Partida en Proceso"
+            Then deberia ver la pagina con titulo "Juego en Progreso"
 
 
         

@@ -1,5 +1,6 @@
 require "./lib/punto"
 require "./lib/jugador"
+require "./lib/linea"
 
 class Tablero
 
@@ -9,7 +10,9 @@ class Tablero
         @jugador1 = Jugador.new(" ")
         @jugador2 = Jugador.new(" ")
         @matriz=Array.new(@fila) {Array.new(@columna) {Punto.new()}}
+        @matrizlinea=Array.new(@fila) {Array.new(@columna) {Linea.new()}}
         @turnoJugador = "j1"
+        
         
     end
 
@@ -107,6 +110,10 @@ class Tablero
         @matriz
     end
 
+    def getMatrizLinea
+        @matrizlinea
+    end
+
     def getJugador1
         @jugador1
     end
@@ -119,11 +126,12 @@ class Tablero
 		if(@turnoJugador == "j1")
             @jugador1.restarTurno()
             #@matriz[1][1].setc("B")
-            @matriz[row-1][column-1].setc("x")
+            @matriz[row-1][column-1].setc("1")
+            
             
 		else
             @jugador2.restarTurno()		
-            @matriz[row-1][column-1].setc("x")	
+            @matriz[row-1][column-1].setc("2")	
 		end
 	end
 
@@ -149,6 +157,10 @@ class Tablero
 
     def getMatriz()
 		return @matriz
+    end
+
+    def getMatrizLinea()
+		return @matrizlinea
     end
     
     

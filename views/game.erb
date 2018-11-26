@@ -1,4 +1,3 @@
-
 <html>
 <head>
 	<script src="semantic/dist/semantic.min.js"></script>
@@ -15,14 +14,23 @@
 
 <head>
 <body>
-		
+	<!--	
 	<% @matriz.each do |fila| %>
 		<% fila.each do |columna| %>
 			<th>    <%=columna.getc  %>   <th>
 		<% end %>
 		<br>
 	<% end %>
-	
+	-->
+
+	<% @matrizlinea.each do |fila| %>
+		<% fila.each do |columna| %>
+			<th>    <%=columna.getClineav  %>   <th>
+		<% end %>
+		<br>
+	<% end %>
+
+
 	<div class="ui basic padded segment">
 		<h1 class="ui blue centered  header">Juego en Progreso</h1>
 	</div>
@@ -48,36 +56,33 @@
   			<table class="ui  celled definition blue table" style="width:70%; margin-left:15%; table-layout: fixed;">
 			 	<thead>
 			 		<tr>
-						 <th></th>
-						 <th></th>
+						 
+						<th></th>
 					  	<% [*1..5].each do |e| %>
-							<th class=" blue left aligned "><B><%= e %></B></th>
-							<th></th>
-							<th></th>
-					    <% end %>
+							<th class=" blue center aligned "><B><%= e %></B></th>
+						<% end %>
 					</tr>
 				</thead>
 				<tbody>	
 				<%if settings.tablero.returnTurn() == "j1" %>	
 							
 									<% settings.tablero.getMatriz().each do |fila| %>
+									
 										<tr>
+											
 											<td class="center aligned"><%= indexed_rows[nroletra] %></td> 	  
+											
 											<% nroletra += 1 %>
 											<% fila.each do |columna| %>
 											
 											<td class="center aligned">
-											
-												<th>    <%=columna.getc  %>   <th>
-												
+												<%=columna.getc%>
 											</td>
 											
-											<% end %>    
+											
+											<% end %> 
 										</tr>
-							
-							
-
-
+				
 				<% end %>
 				<%else%>
 				<% settings.tablero.getMatriz().each do |fila| %>
@@ -87,7 +92,7 @@
 						<% fila.each do |columna| %>
 						
 						<td class="center aligned">
-							<th>    <%=columna.getc  %>   <th>
+							<%=columna.getc%>
 							
 						</td>
 						
